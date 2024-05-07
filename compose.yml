@@ -1,0 +1,22 @@
+#docker compose build image last version
+version: '3.8'
+services:
+  angular_dev_auth_lab:
+    build:
+      context: .
+      target: development
+    image: angular_dev_auth_lab:1.0.0
+    container_name: angular_dev_auth_lab
+    tty: true
+    ports:
+      - 4200:4200
+    volumes:
+      - .:/app/src
+    working_dir: /app
+    command: npm start --host 0.0.0.0
+    networks:
+      - angular_network
+
+networks:
+  angular_network:
+    driver: bridge
