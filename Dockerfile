@@ -2,8 +2,8 @@ FROM node:20-alpine as development
 
 WORKDIR /app
 
-RUN npm install -g @angular/cli
-
 COPY . .
+
+RUN npm install -g @angular/cli && npm install
 
 CMD ["/bin/sh"]
